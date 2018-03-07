@@ -21,7 +21,7 @@ fps_time = 0
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='tf-pose-estimation Video')
-    parser.add_argument('--video', type=str, default='')
+    parser.add_argument('--video', type=str, default='./dance.mp4')
     parser.add_argument('--zoom', type=float, default=1.0)
     parser.add_argument('--resolution', type=str, default='432x368', help='network input resolution. default=432x368')
     parser.add_argument('--model', type=str, default='mobilenet_thin', help='cmu / mobilenet_thin')
@@ -29,9 +29,9 @@ if __name__ == '__main__':
                         help='for debug purpose, if enabled, speed for inference is dropped.')
     args = parser.parse_args()
 
-    logger.debug('initialization %s : %s' % (args.model, get_graph_path(args.model)))
-    w, h = model_wh(args.resolution)
-    e = TfPoseEstimator(get_graph_path(args.model), target_size=(w, h))
+    # logger.debug('initialization %s : %s' % (args.model, get_graph_path(args.model)))
+    # w, h = model_wh(args.resolution)
+    # e = TfPoseEstimator(get_graph_path(args.model), target_size=(w, h))
     #logger.debug('cam read+')
     #cam = cv2.VideoCapture(args.camera)
     cap = cv2.VideoCapture(args.video)
@@ -39,6 +39,8 @@ if __name__ == '__main__':
     #logger.info('cam image=%dx%d' % (image.shape[1], image.shape[0]))
     if (cap.isOpened()== False):
         print("Error opening video stream or file")
+    else:
+        print('true')
     while(cap.isOpened()):
         ret_val, image = cap.read()
 

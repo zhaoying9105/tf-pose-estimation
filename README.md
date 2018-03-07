@@ -164,3 +164,7 @@ See : [etcs/training.md](./etcs/training.md)
 [1] Freeze graph : https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py
 
 [2] Optimize graph : https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2
+
+## 可能遇到的问题
+
+run_video.py opencv 在windows下 无法打开视频文件; 解决方法见[OpenCV 2.4 VideoCapture not working on Windows](https://stackoverflow.com/questions/11699298/opencv-2-4-videocapture-not-working-on-windows)
